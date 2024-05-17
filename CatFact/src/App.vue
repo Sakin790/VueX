@@ -4,3 +4,8 @@
     <p>I Have to ....</p>
   </div>
 </template>
+
+
+<script>
+console.log("Hello");
+</script>
