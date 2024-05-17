@@ -1,11 +1,19 @@
 <template>
   <div>
-    <h1>No Way Left..</h1>
-    <p>I Have to ....</p>
+    <Todo />
+    <input type="text"> <button>Add</button>
   </div>
 </template>
 
 
 <script>
-console.log("Hello");
+import Todo from './components/Todo.vue';
+
+
+export default {
+  components: {
+    Todo
+  }
+
+}
 </script>
