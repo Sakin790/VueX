@@ -36,7 +36,6 @@ export default {
 
 <template>
   <div>
-
     <input v-model="bookName" type="text">
     <button @click="addBook">Add</button>
     <ul>
@@ -44,5 +43,15 @@ export default {
         <button @click="deleteTodo(index)">Delete</button>
       </li>
     </ul>
+
+
+
+    <div>
+      <h1>{{ count }}</h1>
+      <button>Increment</button>
+      <button>Decrement</button>
+      <button>Reset</button>
+    </div>
+
   </div>
 </template>
