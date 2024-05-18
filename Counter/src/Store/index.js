@@ -1,19 +1,25 @@
-import { createStore } from "vuex"
+import Vue from 'vue';
+import Vuex from 'vuex';
+import axios from 'axios'; // Assuming you're using Axios for HTTP requests
 
-export const store = createStore({
+Vue.use(Vuex);
+
+const store = new Vuex.Store({
     state: {
-        count: 0
+        product: {}
     },
-    action: {
-        increment({ commit }) {
-            commit("INCREMENT")
-
+    actions: {
+        fetchProduct({ commit }) {
+            axios.get('https://dummyjson.com/products/2')
+                .then(response => commit('setProduct', response.data))
+                .catch(error => console.error(error)); // Handle errors appropriately
         }
     },
-
     mutations: {
-        INCREMENT(state) {
-            state.count++
+        setProduct(state, product) {
+            state.product = product;
         }
     }
-}) 
+});
+
+export default store;
