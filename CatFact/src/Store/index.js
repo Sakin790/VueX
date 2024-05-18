@@ -3,7 +3,6 @@ import { createStore } from 'vuex'
 export const store = createStore({
     state: {
         bookList: ["Sherlok", "Feluda", "Bomkesh", "Daroga"],
-        count: 0
     },
 
     actions: {

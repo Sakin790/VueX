@@ -1,23 +1,41 @@
-<script>
-  export default {
-    data() {
-      return {
-        count: this.$store.state.count,
-      };
-    },
-
-    methods: {
-      increment() {
-        this.$store.commit("increment");
-        console.log(this.$store.state.count);
-      },
-    },
-  };
-</script>
-
 <template>
   <div>
-    <h1>VueX : {{ this.$store.state.count }}</h1>
-    <button @click="increment">Increment</button>
+    <input v-model="bookName" type="text">
+    <button @click="addBook">Add</button>
+    <ul>
+      <li v-for="(book, index) in bookList" :key="index">
+        {{ book }}
+        <button @click="deleteBook(index)">Delete</button>
+      </li>
+    </ul>
   </div>
 </template>
+
+
+<script>
+export default {
+
+  data() {
+    return {
+      bookName: ""
+    }
+  },
+
+  computed: {
+    bookList() {
+      return this.$store.state.bookList
+    }
+  }
+  ,
+
+  methods: {
+    addBook() {
+      this.$store.dispatch("Add_Book_Action", this.bookName)
+    },
+    deleteBook(index) {
+      this.$store.dispatch("delete_Book", index)
+    }
+  },
+
+}
+</script>
