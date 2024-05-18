@@ -36,3 +36,6 @@ new vuex.store({
 
 
 ```
+
+
+npx json-server db.json
