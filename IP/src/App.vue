@@ -6,7 +6,6 @@
           <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">Welcome Back, Barry!</h1>
           <p class="mt-1.5 text-sm text-gray-500">Let's write a new blog post! 🎉</p>
         </div>
-
         <div class="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
           <button
             class="inline-flex items-center justify-center gap-1.5 rounded-lg border border-gray-200 bg-white px-5 py-3 text-gray-500 transition hover:text-gray-700 focus:outline-none focus:ring"
@@ -28,7 +27,6 @@
       </div>
     </div>
   </header>
-
   <form class="flex flex-col space-y-2 w-1/2 mx-auto" @submit.prevent="handleSubmit">
     <label for="ip" class="text-sm font-medium text-gray-700">Your IP:</label>
     <div class="flex items-center">
@@ -38,12 +36,10 @@
         class="ml-2 py-2 px-3 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white">Submit</button>
     </div>
     <button type="button" @click="fetchApi"
-      class="mt-2 py-2 px-3 bg-green-500 text-white font-medium rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white">Find</button>
+      class="mt-2 py-2  px-3 bg-green-500 text-white font-medium rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white">Find</button>
   </form>
-
   <h4>{{ apiResponse }}</h4>
 </template>
-
 <script>
 export default {
   data() {
@@ -57,7 +53,6 @@ export default {
       console.log('Form submitted:', this.ip, event);
       event.target.reset();
     },
-
     async fetchApi() {
       const url = `http://ip-api.com/json/${this.ip}`;
       try {
@@ -68,7 +63,6 @@ export default {
         const data = await response.json();
         console.log('API data:', data);
         this.apiResponse = data
-        // Optionally, you can set this.ip to the data from the API if needed
         this.ip = data.query;
       } catch (error) {
         console.error('Error fetching API:', error);
